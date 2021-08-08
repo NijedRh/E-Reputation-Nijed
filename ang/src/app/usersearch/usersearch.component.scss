@@ -1,0 +1,50 @@
+/*::placeholder{
+    color : rgb(7, 14, 43);
+}
+.tbody{
+    ::placeholder{
+        color : rgb(105, 124, 209);
+    }
+}*/
+::placeholder {
+    color: rgb(184, 176, 207);
+    font-size: 1rem;
+    font-weight:bold ;
+    text-transform: uppercase;
+  }
+  
+ /* #tr1 .td{
+    color: #0a122a ;
+    font-size: 1rem;
+    font-weight:bold ;
+
+  }*/
+
+  .table > tbody > tr > td {
+    color: #0a122a !important;
+    font-size: 1rem;
+    font-weight:bold ;
+  }
+
+
+  .table > thead > tr > th {
+    border-bottom-width: 1px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 0;
+    color: #083f76;
+    background-color: #c8bab669}
+
+    h1 {
+        
+
+    font-size: 43px;
+    font-weight: 600;
+    color: #6c6a81;
+}
+.navbar{
+padding: 10px 30px 10px 15px;
+width: 100%;
+z-index: 1050;
+background: #b5b6be70;}

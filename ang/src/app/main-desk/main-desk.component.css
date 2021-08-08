@@ -1,0 +1,22 @@
+.container{
+    /*max-width: 1500px;*/
+   
+    max-width: 100vw;
+    
+    min-height: 100vh;
+   /* background-image: url('../../assets/images/backk.jpg');*/
+   background: url("https://wallpaperaccess.com/full/2311974.jpg")500% fixed ;
+    background-size:cover;
+}
+
+.header{
+    display: flex;
+    
+}
+.headerLogo{
+    font-family: 'Lobster', cursive;
+    font-size: 4rem;
+    margin-left: 20px;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+}

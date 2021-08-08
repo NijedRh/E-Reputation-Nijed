@@ -1,0 +1,743 @@
+
+
+   
+
+
+
+
+<nav class="navbar navbar-light" style="color: #348bc9;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" class="btn btn-warning" aria-current="page" [routerLink]="[ '/dash']" routerLinkActive="active" style="text-decoration-color: lightcoral;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" class="btn btn-warning" aria-current="page" [routerLink]="[ '/main/start']" routerLinkActive="active" >add</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" class="btn btn-warning" [routerLink]="[ '/main/usersearch']" routerLinkActive="active">search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" class="btn btn-warning" [routerLink]="[ '/main/scraping']" routerLinkActive="active" >Scraping</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" class="btn btn-warning"(click)="chartme()" [routerLink]="[ '/main/commentaires']" routerLinkActive="active" >Charts</a>
+          </li>
+         <!-- <li class="nav-item">
+            <a class="nav-link" class="btn btn-warning" href="#">scraping</a>
+          </li>-->
+          <!--<li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>-->
+          <li> <button class="btn btn-warning" (click)="logout()" style="margin-left: 50px;">Logout</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+<div class=" content">
+ <!-- <div class=" row">
+    <div class=" col-12">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-6 text-left">
+              <h5 class=" card-category">Nombre de Commentaires</h5>
+              <h2 class=" card-title">Statistiques</h2>
+            </div>
+            <div class=" col-sm-6">
+              <div
+                class=" btn-group btn-group-toggle float-right"
+                data-toggle="buttons"
+              >
+                <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[0];updateOptions();clicked=true;clicked1=false;clicked2=false" [ngClass]="{'active':clicked===true}">
+                  <input checked="checked" name="options" type="radio" />
+
+                  <span
+                    class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                  >
+                    neutre
+                  </span>
+                  <span class=" d-block d-sm-none">
+                    <i class=" tim-icons icon-single-02"> </i>
+                  </span>
+                </label>
+                <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[1];updateOptions();clicked=false;clicked1=true;clicked2=false" [ngClass]="{'active':clicked1===true}">
+                  <input
+                    class=" d-none d-sm-none"
+                    name="options"
+                    type="radio"
+                  />
+
+                  <span
+                    class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                  >
+                    positif
+                  </span>
+                  <span class=" d-block d-sm-none">
+                    <i class=" tim-icons icon-gift-2"> </i>
+                  </span>
+                </label>
+                <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[2];updateOptions();clicked=false;clicked1=false;clicked2=true" [ngClass]="{'active':clicked2===true}">
+                  <input class=" d-none" name="options" type="radio" />
+
+                  <span
+                    class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                  >
+                    negatif
+                  </span>
+                  <span class=" d-block d-sm-none">
+                    <i class=" tim-icons icon-tap-02"> </i>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="chartBig1"> </canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+  <div class=" col-12">
+    <div class=" card card-chart">
+      <div class=" card-header">
+        <div class=" row">
+          <div class=" col-sm-6 text-left">
+            <h5 class=" card-category">Nombre de Commentaires</h5>
+            <h2 class=" card-title">Statistiques</h2>
+          </div>
+          <div class=" col-sm-6">
+            <div
+              class=" btn-group btn-group-toggle float-right"
+              data-toggle="buttons"
+            >
+              <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[0];updateOptions();clicked=true;clicked1=false;clicked2=false" [ngClass]="{'active':clicked===true}">
+                <input checked="checked" name="options" type="radio" />
+
+                <span
+                  class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                >
+                  neutre
+                </span>
+                <span class=" d-block d-sm-none">
+                  <i class=" tim-icons icon-single-02"> </i>
+                </span>
+              </label>
+              <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[1];updateOptions();clicked=false;clicked1=true;clicked2=false" [ngClass]="{'active':clicked1===true}">
+                <input
+                  class=" d-none d-sm-none"
+                  name="options"
+                  type="radio"
+                />
+
+                <span
+                  class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                >
+                  positif
+                </span>
+                <span class=" d-block d-sm-none">
+                  <i class=" tim-icons icon-gift-2"> </i>
+                </span>
+              </label>
+              <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[2];updateOptions();clicked=false;clicked1=false;clicked2=true" [ngClass]="{'active':clicked2===true}">
+                <input class=" d-none" name="options" type="radio" />
+
+                <span
+                  class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                >
+                  negatif
+                </span>
+                <span class=" d-block d-sm-none">
+                  <i class=" tim-icons icon-tap-02"> </i>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" card-body">
+        <div class=" chart-area"><canvas id="chartBig1"> </canvas></div>
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div style="display: inline-flex;">
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-warning"><i class=" tim-icons icon-chat-33"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de J'aime</p><h3 class=" card-title">{{this.details[24]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-refresh-01"></i> Update Now </div></div></div></div>
+  
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-primary"><i class=" tim-icons icon-shape-star"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de J'adore</p><h3 class=" card-title">{{this.details[25]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-sound-wave"></i> Last Research </div></div></div></div>
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-danger"><i class=" tim-icons icon-molecule-40"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de Haha</p><h3 class=" card-title">{{this.details[26]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-watch-time"></i> In the last hours </div></div></div></div>
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-success"><i class=" tim-icons icon-single-02"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de Grr</p><h3 class=" card-title">{{this.details[27]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-trophy"></i>  </div></div></div></div>
+</div>
+
+
+
+
+
+
+
+  <div class=" row">
+  <!--  <div class=" col-lg-4">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Total Shipments</h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-bell-55 text-danger-states"> </i> 763,215
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="chartLineRed"> </canvas></div>
+        </div>
+      </div>
+    </div>
+    -->
+    <div class=" col-lg-4">
+      
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Reactions</h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-delivery-fast text-info"> </i> {{this.somme}}
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="CountryChart"> </canvas></div>
+        </div>
+      </div>
+    </div>
+   <!-- <div class=" col-lg-4">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Completed Tasks</h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-send text-success"> </i> 12,100K
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="chartLineGreen"> </canvas></div>
+        </div>
+      </div>
+    </div>-->
+  </div>
+   <div class=" row">
+   <!--<div class=" col-lg-6 col-md-12">
+      <div class=" card card-tasks">
+        <div class=" card-header">
+          <h6 class=" title d-inline">Tasks(5)</h6>
+          <p class=" card-category d-inline">today</p>
+          <div ngbDropdown>
+            <button
+              class=" btn btn-link btn-icon"
+              data-toggle="dropdown"
+              ngbDropdownToggle
+              type="button"
+            >
+              <i class=" tim-icons icon-settings-gear-63"> </i>
+            </button>
+            <div
+              aria-labelledby="dropdownMenuLink"
+              class=" dropdown-menu-right"
+              ngbDropdownMenu
+            >
+              <a href="javascript:void(0)" ngbDropdownItem> Action </a>
+              <a href="javascript:void(0)" ngbDropdownItem> Another action </a>
+              <a href="javascript:void(0)" ngbDropdownItem> Something else </a>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-full-width table-responsive">
+            <table class=" table">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Update the Documentation</p>
+                    <p class=" text-muted">
+                      Dwuamish Head, Seattle, WA 8:47 AM
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          checked=""
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">GDPR Compliance</p>
+                    <p class=" text-muted">
+                      The GDPR is a regulation that requires businesses to
+                      protect the personal data and privacy of Europe citizens
+                      for transactions that occur within EU member states.
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Solve the issues</p>
+                    <p class=" text-muted">
+                      Fifty percent of all respondents said they would be more
+                      likely to shop at a company
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Release v2.0.0</p>
+                    <p class=" text-muted">
+                      Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body"  >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                         />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Export the processed files</p>
+                    <p class=" text-muted">
+                      The report also shows that consumers will not easily
+                      forgive a company once a breach exposing their personal
+                      data occurs.
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Arival at export process</p>
+                    <p class=" text-muted">
+                      Capitol Hill, Seattle, WA 12:34 AM
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>-->
+   <!----> <div class=" col-lg-6 col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title"> Table</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Post</th>
+                  <th>nombre_de_commentaire_neutres</th>
+                  <th>nombre_de_commentaire_positifs</th>
+                  <th >nombre_de_commentaire_negatifs</th>
+                </tr>
+              </thead>
+            
+             
+                <tr *ngFor="let item of details;let i=index;">
+                  <ng-container *ngIf="item.titre">
+                          
+                      <td>post num: {{i}}</td>
+                      <td>{{item.commentaires.nbr_comm_neutre}}</td>
+                      <td>{{item.commentaires.nbr_comm_positive}}</td>
+                      <td>{{item.commentaires.nbr_comm_negative}}</td>
+                      
+                  </ng-container>
+                </tr>
+               
+                
+                
+               
+                
+                
+             
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- <div>
+              <table class="table table-dark">
+                  <thead c>
+                      <tr>
+                        
+                        <th>Nombre de j'aime</th>
+                          <th>Nombre de j'adore</th>
+                          <th>Nombre de haha</th>
+                          <th>Nombre de grr</th>
+                          
+              
+                      </tr>
+                  </thead>
+                  <tbody #row>
+                 
+                      <tr>
+                          <td>{{this.details[24]}}</td>
+                          <td>{{this.details[25]}}</td>
+                          <td>{{this.details[26]}}</td>
+                          <td>{{this.details[27]}}</td>
+                          
+                        </tr>
+          
+                        
+                         
+                           <td>{{item.nombre_de_commentaire_negatifs}}</td>
+                          <td>{{item.nombre_de_commentaire_neutres}}</td>
+                       
+            
+                    
+                     
+                  
+                        </tbody>
+                        </table>
+                      </div>
+
+ -->
+
+
+ <!--
+ <div class=" table-responsive">
+  <table class=" table tablesorter" id="">
+    <thead class=" text-primary">
+          <tr>
+            
+            <th>Nombre de commentaires positives</th>
+              <th>Nombre de commentaires negatives</th>
+              <th>Nombre de commentaires neutres</th>
+              
+  
+          </tr>
+      </thead>
+     
+     <tr *ngFor="let item of details;let i=index;">
+          <tr>
+              <td>{{this.details[21]}}</td>
+              <td>{{this.details[22]}}</td>
+              <td>{{this.details[23]}}</td>
+            </tr>
+
+             <td>{{item.nombre_de_commentaire_positifs}}</td>
+             
+               <td>{{item.nombre_de_commentaire_negatifs}}</td>
+              <td>{{item.nombre_de_commentaire_neutres}}</td>
+           
+
+        
+         
+      
+            </tbody>
+            </table>
+          </div> -->
+
+
+
+
+
+
+
+
+             
+              <!--  <td >
+                  <button class="btn btn-warning" size="sm" mdbWavesEffect (click)="chartme()" style="margin-left: 500px; ">Chart</button>
+                  
+                </td>
+                <div>
+                   <button class="btn btn-warning" size="sm" mdbWavesEffect (click)="chartme()" style="margin-left: 500px; ">Chart</button>
+                  <canvas id="pieChart" width="100" height="50" ></canvas>
+                </div>-->
+                
+              <footer>
+              <div class=" col-lg-12" style="width: 75%; height: 75%;"><div class=" card"><div class=" card-header">
+                <h4 class=" card-title">Tous les commmentaires par catégorie</h4><p class=" card-category">Commentaires</p>
+
+              </div>
+              <div class=" card-body">
+                <div class=" row">
+                 
+                  
+                <div class=" col-md-6">
+                  
+                  <div class="table-responsive ps">
+                    <table class=" table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class=" emoji"><img alt="emoji"  src="assets/img/smilee.png" style="width: 50%;"></div></td>
+                      <td>Nombre de commentaires positives</td><td class=" text-right"></td>
+                  <td class=" text-right">{{this.details[21]}}</td></tr><tr><td><div class=" emoji"><img alt="emoji" src="assets/img/sad.png" style="width: 50%;"></div></td>
+                    <td>Nombre de commentaires negatives</td><td class=" text-right"></td><td class=" text-right">{{this.details[22]}}</td></tr><tr><td>
+                      
+                      <div class=" emoji">
+                      <img alt="emoji" src="assets/img/neutral.png" style="width: 50%;"></div></td>
+                      <td>Nombre de commentaires neutres</td><td class=" text-right"></td><td class=" text-right">{{this.details[23]}}</td></tr>
+                   
+                      
+                    
+                    
+              
+              
+          
+    
+            
+          
+        
+        

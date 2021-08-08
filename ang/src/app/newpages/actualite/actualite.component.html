@@ -1,0 +1,41 @@
+<div class="container text-center">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="search-hero" style="width: 60%;margin-left: 180px;">
+        <br> <br>
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a bank by name or city or country" >
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <br>
+        <tr>
+          
+          
+          <th>Branche</th>
+          <th>URL</th>
+          <th>Address</th>
+          <th>city</th>
+          <th>country</th>
+          
+         
+        </tr>
+        </thead>
+        <tbody>
+           
+        <tr *ngFor="let item of banks | filter:searchText">
+          <td>{{item.Branche}}</td>
+          <td>{{item.URL}}</td>
+          <td>{{item.Address}}</td>
+          <td>{{item.city}}</td>
+          <td>{{item.country}}</td>
+         
+          
+          
+        </tr>
+   
+        </tbody>
+      </table>
+    </div>
+  </div>

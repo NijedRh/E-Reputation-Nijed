@@ -1,0 +1,116 @@
+
+
+
+  <div class="container text-center">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="search-hero">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a bank by id or name or country">
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <br>
+        <tr>
+          
+          <th>Id</th>
+          <th>Banks Name</th>
+          <th>URL</th>
+          <th>Resultat</th>
+          <th>Détails de la banque scrappée</th>
+         
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let bank of banks | filter:searchText">
+          <td>{{bank.id}}</td>
+          <td>{{bank.Bank_Name}}</td>
+          <td>{{bank.URL}}</td>
+          <td><button  class="btn btn-info" (click)="scrape(bank.URL)">Scrape</button></td>
+          
+          <td><button class ="btn btn-warning" (click)="scrape()">Details</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!--
+<body>
+<div class=" col-lg-6 col-md-12" style="margin-left: auto;
+margin-right: auto; margin-top: 200px;">
+    <div class=" card">
+      <div class=" card-header">
+        <h4 class=" card-title">Simple Table</h4>
+      </div>
+      <div class=" card-body">
+        <div class=" table-responsive">
+          <table class=" table tablesorter" id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>Nom de la banque</th>
+                <th>Url de la banque</th>
+                <th>Nombre de commentaires</th>
+                <th>Nombre de commentaires positifs</th>
+                <th>Nombre de commentaires negatifs</th>
+                <th class=" text-center"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" text-center"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" text-center"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" text-center"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" text-center"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" text-center"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" text-center"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class=" text-center"></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          </div>
+          </div>
+          </div>
+        </body>-->
+        

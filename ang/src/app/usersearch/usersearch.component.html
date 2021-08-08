@@ -1,0 +1,105 @@
+<nav class="navbar navbar-light" style="color: #348bc9;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" class="btn btn-info" aria-current="page" [routerLink]="[ '/dash']" routerLinkActive="active" style="text-decoration-color: lightcoral;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" class="btn btn-info" aria-current="page" [routerLink]="[ '/main/start']" routerLinkActive="active" >add</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" [routerLink]="[ '/main/usersearch']" routerLinkActive="active">search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" [routerLink]="[ '/main/scraping']" routerLinkActive="active" >Scraping</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" [routerLink]="[ '/main/commentaires']" routerLinkActive="active" >Charts</a>
+            </li>
+           <!-- <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" href="#">scraping</a>
+            </li>-->
+            <!--<li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>-->
+            <li> <button class="btn btn-info" (click)="logout()" style="margin-left: 300px;">Logout</button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  </nav>
+  
+  <br> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container text-center">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="search-hero" style="width: 60%;margin-left: 180px;">
+        <br> <br>
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a bank by name or city or country" >
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <br>
+        <tr>
+          
+          
+          <th>Branche</th>
+          <th>URL</th>
+          <th>Address</th>
+          <th>city</th>
+          <th>country</th>
+          <th>Action</th>
+          
+         
+        </tr>
+        </thead>
+        <tbody>
+           
+        <tr *ngFor="let item of banks | filter:searchText"  class="err" style="color: #FF7A59" id="tr1">
+          <td >{{item.Branche}}</td>
+          <td>{{item.URL}}</td>
+          <td>{{item.Address}}</td>
+          <td>{{item.city}}</td>
+          <td>{{item.country}}</td>
+          <td><button  class="btn btn-info" (click)="scrape(item.URL)">Scrape</button></td>
+          
+          
+        </tr>
+   
+        </tbody>
+      </table>
+    </div>
+  </div>

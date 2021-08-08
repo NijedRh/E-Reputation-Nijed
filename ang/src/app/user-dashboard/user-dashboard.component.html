@@ -1,0 +1,214 @@
+<!--<div class="container">
+  <div class="headerbar">
+    <span>Bank at your finger tips</span>
+    <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+  </div>
+  <div class="boom">
+    <h1>Hello {{username}}</h1> <h2>you have successfully logged in !</h2>
+    
+    <button mat-raised-button color="primary" (click)="see()">see more</button>
+  </div>
+-->
+
+<!--<section class="bo">
+
+<head>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    
+ </head>
+ <div class="headerbar">
+  
+  <span style=" color: #3b60af">Manage your Online Reputation</span>
+  <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+  <button  mat-raised-button color="primary"class="h" (click)="see()">Start </button>
+  <br><br>
+  
+ 
+</div>
+-->
+
+
+
+
+
+
+
+
+
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--
+ <div class="image-video-wrp" style="width: 50%;height: 50%;">
+  <span style=" color: #3b60af">Manage your Online Reputation</span>
+  <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+  <button  mat-raised-button color="primary"class="h" (click)="see()">Start </button>
+    <figure>
+        <ng-container *ngIf="videodisabled; else videoblock">
+            <img src="./assets/images/1.jpg" style=" height: 15cm; width:40cm;" class="img-fluid thumblin">
+        </ng-container>
+        <ng-template #videoblock height="100%">
+          
+            <iframe src="https://www.youtube.com/embed/w7qEbPVw3hA?autoplay=1&mute=0&controls=0" frameborder="0" style="position:fixed;height:20cm;width: 45cm ;"  allowfullscreen></iframe>
+          
+        </ng-template>
+        
+        <div class="play-icon-box ">
+            <img (click)="changeImg()" [title]="play" [src]="videoIcon" alt="">
+        </div>
+        
+    </figure>
+    
+</div>-->
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  
+    <button class="btn btn-danger" (click)="logout()" style="margin-left: 30px;">Logout</button>
+      <button  class="btn btn-danger" style="margin-left: 1200px;" (click)="see()">Start </button>
+      <br> <br> <br>
+<div class="row">
+<!--<div class=" col-md-4" style="margin-left: 500px; margin-top: 100px;">
+<div *ngFor="let bank of banks" style="display: inline-block; width: 50%; padding-right: 50px; ">-->
+  <div class=" col-md-4">
+    
+  <div class=" card card-user" style="width: 100%;margin-right: px;">
+  <div class=" card-body">
+    <p class=" card-text"></p>
+    <div class=" author">
+      <div class=" block block-one"></div>
+      <div class=" block block-two"></div>
+      <div class=" block block-three"></div>
+      <div class=" block block-four"></div>
+     
+        <!--<img alt="..."  class="avatar-upload" src="assets/img/minyara.jpg" />-->
+
+        <img id="myimage" [src]='image' />
+
+        <h5 class=" title">{{this.user.Bank_Name}}</h5>
+        <br> <br>
+    
+      <p class=" description">welcome  {{this.user.Bank_Name}} you have successfully logged in </p>
+    </div>
+    <div class=" card-description">
+ 
+    </div>
+  </div>
+  <div class=" card-footer">
+    <div class=" button-container">
+      <button
+        class=" btn btn-icon btn-round btn-facebook"
+         > 
+        <i class=" fab fa-facebook"> </i>
+      </button>
+      <button
+        class=" btn btn-icon btn-round btn-twitter"
+        href="javascript:void(0)"
+      >
+        <i class=" fab fa-twitter"> </i>
+      </button>
+      <button
+        class=" btn btn-icon btn-round btn-google"
+        href="javascript:void(0)"
+      >
+        <i class=" fab fa-google-plus"> </i>
+      </button>
+  
+ <!--
+  
+<div class="search-container">
+  
+          <input type="text" name="search" placeholder="Search..." class="search-input">
+          <a href="#" class="search-btn">
+                  <i class="fas fa-search"></i>      
+          </a>
+      </div>
+        <br> <br>
+     
+   <div class="bodyy">
+     <br> <br>
+    <div class="container2">
+      <br> <br> 
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>comment text</th>
+            <th>author</th>
+            <th>positive</th>
+            <th>negative</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td>
+            <td>Cell 5</td>
+          </tr>
+          <tr>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td>
+            <td>Cell 5</td>
+          </tr>
+          <tr>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td>
+            <td>Cell 5</td>
+          </tr>
+          <tr>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td>
+            <td>Cell 5</td>
+          </tr>
+          <tr>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td>
+            <td>Cell 5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      
+        
+   
+  </div>
+  
+  -->
+
+

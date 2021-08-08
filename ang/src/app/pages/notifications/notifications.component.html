@@ -1,0 +1,777 @@
+<!--<div class=" content">
+  <div class=" row">
+    <div class=" col-md-6">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Notifications Style</h4>
+        </div>
+        <div class=" card-body">
+          <ngb-alert [type]="'info'" [dismissible]="false">
+            <span> This is a plain notification </span>
+          </ngb-alert>
+          <ngb-alert [type]="'info'" *ngIf="!staticAlertClosed" [dismissible]="false">
+            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed = true">
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+            <span> This is a notification with close button. </span>
+          </ngb-alert>
+          <ngb-alert
+            class=" alert-with-icon"
+            data-notify="container"
+            [type]="'info'"*ngIf="!staticAlertClosed1" [dismissible]="false">
+              <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed1 = true">
+                <i class="tim-icons icon-simple-remove"></i>
+              </button>
+            <span class=" tim-icons icon-bell-55" data-notify="icon">
+            </span>
+            <span data-notify="message">
+              This is a notification with close button and icon.
+            </span>
+          </ngb-alert>
+          <ngb-alert
+            class=" alert-with-icon"
+            data-notify="container"
+            [type]="'info'"
+            *ngIf="!staticAlertClosed2" [dismissible]="false">
+              <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed2 = true">
+                <i class="tim-icons icon-simple-remove"></i>
+              </button>
+            <span class=" tim-icons icon-bell-55" data-notify="icon">
+            </span>
+            <span data-notify="message">
+              This is a notification with close button and icon and have
+              many lines. You can see that the icon and the close button
+              are always vertically aligned. This is a beautiful
+              notification. So you don't have to worry about the style.
+            </span>
+          </ngb-alert>
+        </div>
+      </div>
+    </div>
+    <div class=" col-md-6">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Notification states</h4>
+        </div>
+        <div class=" card-body">
+          <ngb-alert [type]="'primary'" *ngIf="!staticAlertClosed3" [dismissible]="false">
+            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed3 = true">
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+            <span>
+              <b> Primary - </b> This is a regular notification made
+              with ".alert-primary"
+            </span>
+          </ngb-alert>
+          <ngb-alert [type]="'info'" *ngIf="!staticAlertClosed4" [dismissible]="false">
+            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed4 = true">
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+            <span>
+              <b> Info - </b> This is a regular notification made with
+              ".alert-info"
+            </span>
+          </ngb-alert>
+          <ngb-alert [type]="'success'" *ngIf="!staticAlertClosed5" [dismissible]="false">
+            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed5 = true">
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+            <span>
+              <b> Success - </b> This is a regular notification made
+              with ".alert-success"
+            </span>
+          </ngb-alert>
+          <ngb-alert [type]="'warning'" *ngIf="!staticAlertClosed6" [dismissible]="false">
+            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed6 = true">
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+            <span>
+              <b> Warning - </b> This is a regular notification made
+              with ".alert-warning"
+            </span>
+          </ngb-alert>
+          <ngb-alert [type]="'danger'" *ngIf="!staticAlertClosed7" [dismissible]="false">
+            <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close" (click)="staticAlertClosed7 = true">
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+            <span>
+              <b> Danger - </b> This is a regular notification made with
+              ".alert-danger"
+            </span>
+          </ngb-alert>
+        </div>
+      </div>
+    </div>
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-body">
+          <div class=" places-buttons">
+            <div class=" row">
+              <div class=" col-md-6 ml-auto mr-auto text-center">
+                <h4 class=" card-title">Notifications Places</h4>
+                <p class=" category">Click to view notifications</p>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-lg-8 ml-auto mr-auto">
+                <div class=" row">
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"
+                      (click)="showNotification('top', 'left')"
+                    >
+                      Top Left
+                    </button>
+                  </div>
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"
+                      (click)="showNotification('top', 'center')"
+                    >
+                      Top Center
+                    </button>
+                  </div>
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"
+                      (click)="showNotification('top', 'right')"
+                    >
+                      Top Right
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-lg-8 ml-auto mr-auto">
+                <div class=" row">
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"
+                      (click)="showNotification('bottom', 'left')"
+                    >
+                      Bottom Left
+                    </button>
+                  </div>
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"
+                      (click)="
+                        showNotification('bottom', 'center')
+                      "
+                    >
+                      Bottom Center
+                    </button>
+                  </div>
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"
+                      (click)="showNotification('bottom', 'right')"
+                    >
+                      Bottom Right
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<div class=" content">
+  <div class=" row">
+    <div class=" col-12">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-6 text-left">
+              <h5 class=" card-category">Nombre de Commentaires</h5>
+              <h2 class=" card-title">Statistiques</h2>
+            </div>
+            <div class=" col-sm-6">
+              <div
+                class=" btn-group btn-group-toggle float-right"
+                data-toggle="buttons"
+              >
+                <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[0];updateOptions();clicked=true;clicked1=false;clicked2=false" [ngClass]="{'active':clicked===true}">
+                  <input checked="checked" name="options" type="radio" />
+
+                  <span
+                    class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                  >
+                    neutre
+                  </span>
+                  <span class=" d-block d-sm-none">
+                    <i class=" tim-icons icon-single-02"> </i>
+                  </span>
+                </label>
+                <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[1];updateOptions();clicked=false;clicked1=true;clicked2=false" [ngClass]="{'active':clicked1===true}">
+                  <input
+                    class=" d-none d-sm-none"
+                    name="options"
+                    type="radio"
+                  />
+
+                  <span
+                    class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                  >
+                    positif
+                  </span>
+                  <span class=" d-block d-sm-none">
+                    <i class=" tim-icons icon-gift-2"> </i>
+                  </span>
+                </label>
+                <label class=" btn btn-sm btn-danger btn-simple" (click)="data=datasets[2];updateOptions();clicked=false;clicked1=false;clicked2=true" [ngClass]="{'active':clicked2===true}">
+                  <input class=" d-none" name="options" type="radio" />
+
+                  <span
+                    class=" d-none d-sm-block d-md-block d-lg-block d-xl-block"
+                  >
+                    negatif
+                  </span>
+                  <span class=" d-block d-sm-none">
+                    <i class=" tim-icons icon-tap-02"> </i>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="chartBig1"> </canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: inline-flex;">
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-warning"><i class=" tim-icons icon-chat-33"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de J'aime</p><h3 class=" card-title">{{this.details[24]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-refresh-01"></i> Update Now </div></div></div></div>
+  
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-primary"><i class=" tim-icons icon-shape-star"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de J'adore</p><h3 class=" card-title">{{this.details[25]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-sound-wave"></i> Last Research </div></div></div></div>
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-danger"><i class=" tim-icons icon-molecule-40"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de Haha</p><h3 class=" card-title">{{this.details[26]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-watch-time"></i> In the last hours </div></div></div></div>
+  <div class=" col-lg-3 col-md-6"><div class=" card card-stats"><div class=" card-body"><div class=" row"><div class=" col-5"><div class=" info-icon text-center icon-success"><i class=" tim-icons icon-single-02"></i></div></div><div class=" col-7"><div class=" numbers"><p class=" card-category">Nombre de Grr</p><h3 class=" card-title">{{this.details[27]}}</h3></div></div></div></div><div class=" card-footer"><hr><div class=" stats"><i class=" tim-icons icon-trophy"></i>  </div></div></div></div>
+</div>
+
+
+
+
+
+
+
+  <div class=" row">
+   <!-- <div class=" col-lg-4">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Total Shipments</h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-bell-55 text-danger-states"> </i> 763,215
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="chartLineRed"> </canvas></div>
+        </div>
+      </div>
+    </div>
+  -->
+    <div class=" col-lg-4">
+      
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Reactions</h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-delivery-fast text-info"> </i> {{this.somme}}
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="CountryChart"> </canvas></div>
+        </div>
+      </div>
+    </div>
+   <!-- <div class=" col-lg-4">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Completed Tasks</h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-send text-success"> </i> 12,100K
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"><canvas id="chartLineGreen"> </canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  <div class=" row">
+    <!--<div class=" col-lg-6 col-md-12">
+      <div class=" card card-tasks">
+        <div class=" card-header">
+          <h6 class=" title d-inline">Tasks(5)</h6>
+          <p class=" card-category d-inline">today</p>
+          <div ngbDropdown>
+            <button
+              class=" btn btn-link btn-icon"
+              data-toggle="dropdown"
+              ngbDropdownToggle
+              type="button"
+            >
+              <i class=" tim-icons icon-settings-gear-63"> </i>
+            </button>
+            <div
+              aria-labelledby="dropdownMenuLink"
+              class=" dropdown-menu-right"
+              ngbDropdownMenu
+            >
+              <a href="javascript:void(0)" ngbDropdownItem> Action </a>
+              <a href="javascript:void(0)" ngbDropdownItem> Another action </a>
+              <a href="javascript:void(0)" ngbDropdownItem> Something else </a>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-full-width table-responsive">
+            <table class=" table">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Update the Documentation</p>
+                    <p class=" text-muted">
+                      Dwuamish Head, Seattle, WA 8:47 AM
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          checked=""
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">GDPR Compliance</p>
+                    <p class=" text-muted">
+                      The GDPR is a regulation that requires businesses to
+                      protect the personal data and privacy of Europe citizens
+                      for transactions that occur within EU member states.
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Solve the issues</p>
+                    <p class=" text-muted">
+                      Fifty percent of all respondents said they would be more
+                      likely to shop at a company
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Release v2.0.0</p>
+                    <p class=" text-muted">
+                      Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body"  >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Export the processed files</p>
+                    <p class=" text-muted">
+                      The report also shows that consumers will not easily
+                      forgive a company once a breach exposing their personal
+                      data occurs.
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class=" form-check">
+                      <label class=" form-check-label">
+                        <input
+                          class=" form-check-input"
+                          type="checkbox"
+                          value=""
+                        />
+
+                        <span class=" form-check-sign">
+                          <span class=" check"> </span>
+                        </span>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <p class=" title">Arival at export process</p>
+                    <p class=" text-muted">
+                      Capitol Hill, Seattle, WA 12:34 AM
+                    </p>
+                  </td>
+                  <td class=" td-actions text-right">
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit Task" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" col-lg-6 col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Simple Table</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Name</th>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th class=" text-center">Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dakota Rice</td>
+                  <td>Niger</td>
+                  <td>Oud-Turnhout</td>
+                  <td class=" text-center">$36,738</td>
+                </tr>
+                <tr>
+                  <td>Minerva Hooper</td>
+                  <td>CuraÃ§ao</td>
+                  <td>Sinaai-Waas</td>
+                  <td class=" text-center">$23,789</td>
+                </tr>
+                <tr>
+                  <td>Sage Rodriguez</td>
+                  <td>Netherlands</td>
+                  <td>Baileux</td>
+                  <td class=" text-center">$56,142</td>
+                </tr>
+                <tr>
+                  <td>Philip Chaney</td>
+                  <td>Korea, South</td>
+                  <td>Overland Park</td>
+                  <td class=" text-center">$38,735</td>
+                </tr>
+                <tr>
+                  <td>Doris Greene</td>
+                  <td>Malawi</td>
+                  <td>Feldkirchen in KÃ¤rnten</td>
+                  <td class=" text-center">$63,542</td>
+                </tr>
+                <tr>
+                  <td>Mason Porter</td>
+                  <td>Chile</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$78,615</td>
+                </tr>
+                <tr>
+                  <td>Jon Porter</td>
+                  <td>Portugal</td>
+                  <td>Gloucester</td>
+                  <td class=" text-center">$98,615</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- <div>
+              <table class="table table-dark">
+                  <thead c>
+                      <tr>
+                        
+                        <th>Nombre de j'aime</th>
+                          <th>Nombre de j'adore</th>
+                          <th>Nombre de haha</th>
+                          <th>Nombre de grr</th>
+                          
+              
+                      </tr>
+                  </thead>
+                  <tbody #row>
+                 
+                      <tr>
+                          <td>{{this.details[24]}}</td>
+                          <td>{{this.details[25]}}</td>
+                          <td>{{this.details[26]}}</td>
+                          <td>{{this.details[27]}}</td>
+                          
+                        </tr>
+          
+                        
+                         
+                           <td>{{item.nombre_de_commentaire_negatifs}}</td>
+                          <td>{{item.nombre_de_commentaire_neutres}}</td>
+                       
+            
+                    
+                     
+                  
+                        </tbody>
+                        </table>
+                      </div>
+
+ -->
+
+
+
+ <div>
+  <table class="table table-striped">
+      <thead c>
+          <tr>
+            
+            <th>Nombre de commentaires positives</th>
+              <th>Nombre de commentaires negatives</th>
+              <th>Nombre de commentaires neutres</th>
+              
+  
+          </tr>
+      </thead>
+      <tbody #row>
+      <!--<tr *ngFor="let item of details;let i=index;">-->
+          <tr>
+              <td>{{this.details[21]}}</td>
+              <td>{{this.details[22]}}</td>
+              <td>{{this.details[23]}}</td>
+            </tr>
+
+             <!-- <td>{{item.nombre_de_commentaire_positifs}}</td>
+             
+               <td>{{item.nombre_de_commentaire_negatifs}}</td>
+              <td>{{item.nombre_de_commentaire_neutres}}</td>
+            -->
+
+        
+         
+      
+            </tbody>
+            </table>
+          </div>
+
+
+
+
+
+
+
+
+              <footer>
+                <td >
+                  <button class="btn btn-warning" size="sm" mdbWavesEffect (click)="chartme()" style="margin-left: 500px;">Chart</button>
+                  
+                </td>
+                <div>
+                  <canvas id="pieChart"></canvas>
+                </div>
+              </footer>
+              
+              
+          
+    
+            
+          
+        
+        

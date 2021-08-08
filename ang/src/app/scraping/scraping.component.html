@@ -1,0 +1,180 @@
+
+<nav class="navbar navbar-light" style="color: #348bc9;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" class="btn btn-info" aria-current="page" [routerLink]="[ '/dash']" routerLinkActive="active" style="text-decoration-color: lightcoral;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" class="btn btn-info" aria-current="page" [routerLink]="[ '/main/start']" routerLinkActive="active" >add</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" [routerLink]="[ '/main/usersearch']" routerLinkActive="active">search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" [routerLink]="[ '/main/scraping']"  >Scraping</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" [routerLink]="[ '/main/commentaires']" routerLinkActive="active" >Charts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" (click)="logout()" >Logout</a>
+            </li>
+           <!-- <li class="nav-item">
+              <a class="nav-link" class="btn btn-info" href="#">scraping</a>
+            </li>-->
+            <!--<li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>-->
+           
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  </nav>
+  
+  <br> 
+
+
+
+  <table  class="table table-responsive">
+    <thead>
+        <tr>
+           
+      <th>posts</th>
+      <th>titre</th>
+      <th>Date</th>
+      <th>Nombre de j'aime</th>
+      <th>Nombre de j'adore</th>
+      <th>Nombre de Haha</th>
+      <th>Nombre de Grrr</th>
+      <th>commentaires</th>
+      
+     
+            
+
+        </tr>
+    </thead>
+    <tr *ngFor="let item of pythouna;let i=index;">
+        <ng-container *ngIf="item.titre">
+                
+                <td>post num: {{i}}</td>
+                <td>{{item.titre}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.react['J\’aime']}}</td>
+                <td>{{item.react['J\’adore']}}</td>
+                <td>{{item.react.Haha}}</td>
+                <td>{{item.react.Grrr}}</td>
+               <!-- <button class="btn btn-info" (click)="commsdetails(this.pythouna)">Details</button>-->
+               <tbody mdbTable striped="true">
+               <td scope="row">
+                <button
+                  type="button"
+                  matBtn
+                  color="danger"
+                  class="master-button"
+                  matWavesEffect
+                  *ngIf="collapsed "
+                  (click)="collapsed = !collapsed"
+                >
+                  <mat-icon fas icon="angle-down"></mat-icon>
+                </button>
+                <button
+                  type="button"
+                  matBtn
+                  color="success"
+                  class="master-button"
+                  
+                  matWavesEffect
+                  *ngIf="!collapsed "
+                  (click)="collapsed = !collapsed"
+                >
+                  <mat-icon fas icon="angle-right"></mat-icon>
+                </button>
+               
+              </td>
+              <tr
+          *ngIf="collapsed"
+          style="text-align: center; background-color: rgba(0, 0, 0,  0.015)"
+        >
+          <td colspan="100%" style="border: 0 !important">
+            <table matTable>
+              <thead class="black white-text">
+                <tr>
+                  <th *ngFor="let thing of things" scope="col">{{ thing }}</th>
+                </tr>
+              </thead>
+             
+                
+                <ng-container *ngIf="item.commentaires.det && item.commentaires.det.length > 0 && item.commentaires.det[0].length">
+                  <tr>
+
+                <td>{{item.commentaires.det[0][0]['auteur ']}}</td>
+               <td> {{item.commentaires.det[0][1]['comm ']}} </td>
+               <td> {{item.commentaires.det[0][2]['sent : ']}} </td>
+              </tr>
+
+              </ng-container>
+            </table>
+    
+
+       
+      
+
+        
+            
+       
+
+
+
+
+
+
+
+
+
+<!--<table class="table table-striped">
+    <thead>
+      <br>
+    <tr>
+      
+      <th>id</th>
+      <th>posts</th>
+      <th>titre</th>
+      <th>Nombre de j'aime</th>
+      <th>Nombre de j'adore</th>
+      <th>Nombre de Haha</th>
+      <th>Nombre de Grrr</th>
+      <th>commentaires</th>
+      
+      
+     
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let item of pythouna;let i=index;">
+        <ng-container *ngIf="item.titre">
+                <td>{{item._id}}</td>
+                <td>post num: {{i}}</td>
+                <td>{{item.titre}}</td>
+                <td>{{item.react['J\’aime']}}</td>
+                <td>{{item.react['J\’adore']}}</td>
+                <td>{{item.react.Haha}}</td>
+                <td>{{item.react.Grrr}}</td>
+               
+                <button class="btn btn-info" (click)="commsdetails(this.pythouna)">Details</button>
+      </ng-container>
+    
+      
+    </tr>
+
+    </tbody>
+  </table>-->

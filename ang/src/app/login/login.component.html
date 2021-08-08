@@ -1,0 +1,70 @@
+<!--<div class="formcontainer">
+    <div class="formbody">
+        <form style="width:100%;" [formGroup]="loginForm">
+            <div class="header">Welcome</div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="text"formControlName="email" matInput placeholder="Enter Email">
+                </mat-form-field>
+                <span *ngIf="isValid('email')">Username cannot be blank</span>
+            </div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="password" formControlName="password" matInput placeholder="Password">
+                </mat-form-field>
+                <span *ngIf="isValid('password')">Password cannot be blank</span>
+            </div>
+            <div style="margin-top:40px; margin-left: 50px;">
+                <button class="form-btn" (click)="login()">Sign In</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <div style="width: 290px; padding: 20px;">
+            <button class="form-btn-hollow" (click)="movetoregister()">Register</button>
+        </div>
+    </div>
+</div>-->
+
+<div class="wrapper">
+    <div class="formbody">
+        <form style="width:400px;" [formGroup]="loginForm" class="login">
+            <div class="title">Welcome</div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    
+                    <input type="text"formControlName="email" matInput placeholder="Enter Email" autofocus>
+                    <i class="fa fa-user"></i>
+                </mat-form-field>
+                <span *ngIf="isValid('email')">Username cannot be blank</span>
+            </div>
+            <div>
+                <mat-form-field style="width:100%;">
+                    <input type="password" formControlName="password" matInput placeholder="Password">
+                    <i class="fa fa-key"></i>
+                </mat-form-field>
+                <span *ngIf="isValid('password')">Password cannot be blank</span>
+            </div>
+            <div style="margin-top:40px; margin-left: 10px;padding-right: -10px;width: 100%;">
+                <button class="form-btn" style="width: 50%;" (click)="login()"> Login</button>
+            </div>
+            <div style="margin-top:40px; margin-left: 10px;padding-right: -10px;width: 100%;">
+                <button class="form-btn" style="width: 50%;margin-left: 203px;" (click)="adminlog()"> Admin login</button>
+            </div>
+           
+            
+            
+            
+        </form>
+    </div>
+    
+    
+    <div>
+        <br> 
+        <div style="width: 150px; padding: 20px;" class="login">
+            <i class="spinner"></i>
+            <button class="login" (click)="movetoregister()">Register</button>
+        </div>
+    </div>
+</div>

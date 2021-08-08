@@ -1,0 +1,88 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">My Table</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>posts</th>
+                  <th>titre</th>
+                  <th>Nombre de j'aime</th>
+                  <th>Nombre de j'adore</th>
+                  <th>Nombre de Haha</th>
+                  <th>Nombre de Grrr</th>
+                  <th>commentaires</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of pythouna;let i=index;">
+                  <ng-container *ngIf="item.titre">
+                          
+                          <td>post num: {{i}}</td>
+                          <td>{{item.titre}}</td>
+                          <td>{{item.react['J\’aime']}}</td>
+                          <td>{{item.react['J\’adore']}}</td>
+                          <td>{{item.react.Haha}}</td>
+                          <td>{{item.react.Grrr}}</td>
+                         <!-- <button class="btn btn-info" (click)="commsdetails(this.pythouna)">Details</button>-->
+                         <tbody mdbTable striped="true">
+                         <td scope="row">
+                          <button
+                            type="button"
+                            matBtn
+                            color="danger"
+                            class="master-button"
+                            matWavesEffect
+                            *ngIf="collapsed "
+                            (click)="collapsed = !collapsed"
+                          >
+                            <mat-icon fas icon="angle-down"></mat-icon>
+                          </button>
+                          <button
+                            type="button"
+                            matBtn
+                            color="success"
+                            class="master-button"
+                            
+                            matWavesEffect
+                            *ngIf="!collapsed "
+                            (click)="collapsed = !collapsed"
+                          >
+                            <mat-icon fas icon="angle-right"></mat-icon>
+                          </button>
+                         
+                        </td>
+                        <tr
+                    *ngIf="collapsed"
+                    style="text-align: center; background-color: rgba(0, 0, 0,  0.015)"
+                  >
+                    <td colspan="100%" style="border: 0 !important">
+                      <table matTable>
+                        <thead class="black white-text">
+                          <tr>
+                            <th *ngFor="let thing of things" scope="col">{{ thing }}</th>
+                          </tr>
+                        </thead>
+                       
+                          
+                          <ng-container *ngIf="item.commentaires.det && item.commentaires.det.length > 0 && item.commentaires.det[0].length">
+                            <tr>
+          
+                          <td>{{item.commentaires.det[0][0]['auteur ']}}</td>
+                         <td> {{item.commentaires.det[0][1]['comm ']}} </td>
+                         <td> {{item.commentaires.det[0][2]['sent : ']}} </td>
+                        </tr>
+          
+                        </ng-container>
+           
+            </table>
+         
+ 
+   
+    
