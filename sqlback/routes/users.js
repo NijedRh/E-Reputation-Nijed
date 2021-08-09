@@ -161,7 +161,8 @@ router.get('/getAllusers',async(req,res) => {
     
   })
 router.post('/deleteuser',function(req,res,next){
- console.log(req.body);
+  console.log('hhh');
+ console.log(req.body.id);
 let id = req.body.id
 console.log(id);
     User.findOne({
@@ -172,9 +173,17 @@ console.log(id);
     .then(user=> {
       console.log(user);
       if(user){
+        email=user.email;
+        console.log("sss")
+        console.log(user);
+        console.log(email);
         console.log("THIS : " + user.username);
         User.destroy({where: {id:user.id}}).then(test =>{
-          return res.send({'result':'user was deleted'}); })
+          //return res.send({'result':'user was deleted'}); 
+        })
+        Bank.destroy({where: {email:email}}).then(test =>{
+          return res.send({'result':'user and bank were deleted'}) ;
+        })
          
 
 

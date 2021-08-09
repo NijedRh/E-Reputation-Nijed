@@ -266,6 +266,81 @@
     </div>-->
   </div>
    <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-body">
+          <div class=" places-buttons">
+            <div class=" row">
+              <div class=" col-md-6 ml-auto mr-auto text-center">
+                <h4 class=" card-title"> 6 Premiéres Postes</h4>
+                <p class=" category">cliquer pour voir leurs titres</p>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-lg-8 ml-auto mr-auto">
+                <div class=" row">
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"  id="buttonone"
+                      (click)="showNotification('top', 'left')"
+                    >
+                      Post1
+                    </button>
+                  </div>
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block" id="buttontwo"
+                      (click)="showNotification2('top', 'center')"
+                    >
+                      Post2
+                    </button>
+                  </div>
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block"id="buttonthree"
+                      (click)="showNotification3('top', 'right')"
+                    >
+                     Post3
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-lg-8 ml-auto mr-auto">
+                <div class=" row">
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block" id="buttonfour"
+                      (click)="showNotification4('bottom', 'left')"
+                    >
+                      Post4
+                    </button>
+                  </div>
+                  <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block" id="buttonfive"
+                      (click)="
+                        showNotification5('bottom', 'center')
+                      "
+                    >
+                      Post5
+                    </button>
+                  </div>
+                 <div class=" col-md-4">
+                    <button
+                      class=" btn btn-danger btn-block" id="button"
+                      (click)="showNotification6('bottom', 'right')"
+                    >
+                      Post6
+                    </button>
+                  </div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
    <!--<div class=" col-lg-6 col-md-12">
       <div class=" card card-tasks">
         <div class=" card-header">
@@ -475,10 +550,10 @@
         </div>
       </div>
     </div>-->
-   <!----> <div class=" col-lg-6 col-md-12">
-      <div class=" card">
-        <div class=" card-header">
-          <h4 class=" card-title"> Table</h4>
+  <div class=" col-lg-6 col-md-12">
+     
+      
+        <!--  <h4 class=" card-title"> Table</h4>
         </div>
         <div class=" card-body">
           <div class=" table-responsive">
@@ -497,7 +572,7 @@
                   <ng-container *ngIf="item.titre">
                           
                       <td>post num: {{i}}</td>
-                      <td>{{item.commentaires.nbr_comm_neutre}}</td>
+                     <td>{{item.commentaires.nbr_comm_neutre}}</td>
                       <td>{{item.commentaires.nbr_comm_positive}}</td>
                       <td>{{item.commentaires.nbr_comm_negative}}</td>
                       
@@ -510,15 +585,21 @@
                 
                 
              
-            </table>
-          </div>
-        </div>
+            </table>-->
+        
       </div>
     </div>
   </div>
 </div>
 
 
+
+
+
+
+
+
+  
 
 
 
@@ -705,21 +786,30 @@
                   <canvas id="pieChart" width="100" height="50" ></canvas>
                 </div>-->
                 
-              <footer>
-              <div class=" col-lg-12" style="width: 75%; height: 75%;"><div class=" card"><div class=" card-header">
-                <h4 class=" card-title">Tous les commmentaires par catégorie</h4><p class=" card-category">Commentaires</p>
+              <div>
+              <div class=" col-lg-12" style="width: 100%; height: 25%;"><div class=" card"><div class=" card-header">
+                <h4 class=" card-title" style="margin-top: 80px;">Tous les commmentaires par catégorie</h4><p class=" card-category">Commentaires</p>
+                <div class=" col-md-6" style="float: right;">
+                  <div>
+                    
+                    <td><button class="btn btn-warning" size="sm" mdbWavesEffect (click)="chartme()"  style="margin-left: 240px;">Chart</button></td>
+                   <canvas id="pieChart" width="100" height="50"  style="padding-bottom: 70px;"></canvas>
+                 </div>
 
               </div>
               <div class=" card-body">
-                <div class=" row">
+               
+                <div class=" row" >
+                 
                  
                   
-                <div class=" col-md-6">
+                <div class=" col-md-6" style="width: 100%;height: 100%;">
+                 
                   
-                  <div class="table-responsive ps">
+                  <div class="table-responsive ps"  style="margin-top: 70px;" >
                     <table class=" table">
                 <tbody>
-                  <tr>
+                  <tr >
                     <td>
                       <div class=" emoji"><img alt="emoji"  src="assets/img/smilee.png" style="width: 50%;"></div></td>
                       <td>Nombre de commentaires positives</td><td class=" text-right"></td>
@@ -729,8 +819,13 @@
                       <div class=" emoji">
                       <img alt="emoji" src="assets/img/neutral.png" style="width: 50%;"></div></td>
                       <td>Nombre de commentaires neutres</td><td class=" text-right"></td><td class=" text-right">{{this.details[23]}}</td></tr>
+                    
                    
+                     
+                 
+                  
                       
+                       
                     
                     
               

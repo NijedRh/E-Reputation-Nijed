@@ -5,9 +5,11 @@ import { HttpClient, XhrFactory } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MyserviceService } from '../myservice.service';
 import {take} from 'rxjs/operators';
-import { Chart} from 'chart.js'
+import { Chart} from 'chart.js';
+import { ToastrService } from 'ngx-toastr';
 import { hasOnlyExpressionInitializer } from 'typescript';
-import { range } from 'rxjs';
+import { NgIf } from '@angular/common';
+
 @Component({
   selector: 'app-commentaires',
   templateUrl: './commentaires.component.html',
@@ -39,8 +41,16 @@ export class CommentairesComponent implements OnInit {
   y: any;
   m: any;
   h: any;
+  hh: any;
+  gg: any;
+  ii: any;
+  kk: any;
+  nn: any;
+  id: any;
+  mm: any;
+ 
 
-  constructor(private _router: Router,private _http: HttpClient,private _myservice: MyserviceService,private _activatedRoute: ActivatedRoute) {
+  constructor(private toastr: ToastrService,private _router: Router,private _http: HttpClient,private _myservice: MyserviceService,private _activatedRoute: ActivatedRoute) {
     
     
     let URL = localStorage.getItem('URL');
@@ -49,6 +59,577 @@ export class CommentairesComponent implements OnInit {
 
    }
    PieChart=[];
+
+   showNotification(from, align){
+    let hhh: any[] = [];
+     
+    let URL = localStorage.getItem('URL');
+    
+    this._myservice.detailspy({'URL':URL})
+    .subscribe(
+      data => {
+        this.details = Object.values( data[0]);
+        for(var i=1; i<20;i++){
+          
+        this.hh=this.details[1]["titre"];
+        this.gg=this.details[2]["titre"];
+        this.ii= this.details[3]["titre"];
+        this.kk=this.details[4]["titre"];
+        this.nn=this.details[5]["titre"];
+       
+     
+        
+        //console.log(titres);
+        
+          
+      
+      }
+      hhh.push(this.hh);
+      hhh.push(this.gg);
+      hhh.push(this.ii);
+      hhh.push(this.kk);
+      hhh.push(this.nn);
+      console.log("pssss");
+        console.log(this.hh);
+        console.log(hhh)
+       
+       
+      },
+      error => {
+        console.log(error);
+      });  
+     
+    const color = Math.floor((Math.random() * 5) + 1);
+    
+
+    switch(color){
+      /*case 1:
+      this.toastr.info(`Titre: ${this.hh}` , '', {
+         
+         disableTimeOut: true,
+         closeButton: true,
+         enableHtml: true,
+         toastClass: "alert alert-info alert-with-icon",
+         positionClass: 'toast-' + from + '-' +  align
+       });
+      break;*/
+      case 1:
+      this.toastr.success(`Titre: ${this.hh}`, '', {
+         disableTimeOut: true,
+         closeButton: true,
+         enableHtml: true,
+         toastClass: "alert alert-success alert-with-icon",
+         positionClass: 'toast-' + from + '-' +  align
+       });
+      break;
+      case 2:
+      this.toastr.warning(`Titre: ${this.hh}`, '', {
+         disableTimeOut: true,
+         closeButton: true,
+         enableHtml: true,
+         toastClass: "alert alert-warning alert-with-icon",
+         positionClass: 'toast-' + from + '-' +  align
+       });
+      break;
+      case 3:
+      this.toastr.error(`Titre: ${this.hh}`, '', {
+         disableTimeOut: true,
+         enableHtml: true,
+         closeButton: true,
+         toastClass: "alert alert-danger alert-with-icon",
+         positionClass: 'toast-' + from + '-' +  align
+       });
+       break;
+       case 4 :
+       this.toastr.show(`Titre: ${this.hh}`, '', {
+          disableTimeOut: true,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-primary alert-with-icon",
+          positionClass: 'toast-' + from + '-' +  align
+        });
+      break;
+      default:
+      break;
+    }
+}
+
+showNotification2(from, align){
+  let hhh: any[] = [];
+   
+  let URL = localStorage.getItem('URL');
+  
+  this._myservice.detailspy({'URL':URL})
+  .subscribe(
+    data => {
+      this.details = Object.values( data[0]);
+      for(var i=1; i<20;i++){
+        
+      this.hh=this.details[1]["titre"];
+      this.gg=this.details[2]["titre"];
+      this.ii= this.details[3]["titre"];
+      this.kk=this.details[4]["titre"];
+      this.nn=this.details[5]["titre"];
+     
+   
+      
+      //console.log(titres);
+      
+        
+    
+    }
+    hhh.push(this.hh);
+    hhh.push(this.gg);
+    hhh.push(this.ii);
+    hhh.push(this.kk);
+    hhh.push(this.nn);
+    console.log("pssss");
+      console.log(this.hh);
+      console.log(hhh)
+     
+     
+    },
+    error => {
+      console.log(error);
+    });  
+   
+  const color = Math.floor((Math.random() * 5) + 1);
+  
+
+  switch(color){
+   /* case 1:
+    this.toastr.info(`Titre: ${this.gg}` , '', {
+       
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-info alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;*/
+    case 1:
+    this.toastr.success(`Titre: ${this.gg}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-success alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 2:
+    this.toastr.warning(`Titre: ${this.gg}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-warning alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 3:
+    this.toastr.error(`Titre: ${this.gg}`, '', {
+       disableTimeOut: true,
+       enableHtml: true,
+       closeButton: true,
+       toastClass: "alert alert-danger alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+     break;
+     case 4 :
+     this.toastr.show(`Titre: ${this.gg}`, '', {
+        disableTimeOut: true,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-primary alert-with-icon",
+        positionClass: 'toast-' + from + '-' +  align
+      });
+    break;
+    default:
+    break;
+  }
+}
+
+showNotification3(from, align){
+  let hhh: any[] = [];
+   
+  let URL = localStorage.getItem('URL');
+  
+  this._myservice.detailspy({'URL':URL})
+  .subscribe(
+    data => {
+      this.details = Object.values( data[0]);
+      for(var i=1; i<20;i++){
+        
+      this.hh=this.details[1]["titre"];
+      this.gg=this.details[2]["titre"];
+      this.ii= this.details[3]["titre"];
+      this.kk=this.details[4]["titre"];
+      this.nn=this.details[5]["titre"];
+     
+   
+      
+      //console.log(titres);
+      
+        
+    
+    }
+    hhh.push(this.hh);
+    hhh.push(this.gg);
+    hhh.push(this.ii);
+    hhh.push(this.kk);
+    hhh.push(this.nn);
+    console.log("pssss");
+      console.log(this.hh);
+      console.log(hhh)
+     
+     
+    },
+    error => {
+      console.log(error);
+    });  
+   
+  const color = Math.floor((Math.random() * 5) + 1);
+  
+
+  switch(color){
+   /* case 1:
+    this.toastr.info(`Titre: ${this.gg}` , '', {
+       
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-info alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;*/
+    case 1:
+    this.toastr.success(`Titre: ${this.ii}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-success alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 2:
+    this.toastr.warning(`Titre: ${this.ii}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-warning alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 3:
+    this.toastr.error(`Titre: ${this.ii}`, '', {
+       disableTimeOut: true,
+       enableHtml: true,
+       closeButton: true,
+       toastClass: "alert alert-danger alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+     break;
+     case 4 :
+     this.toastr.show(`Titre: ${this.ii}`, '', {
+        disableTimeOut: true,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-primary alert-with-icon",
+        positionClass: 'toast-' + from + '-' +  align
+      });
+    break;
+    default:
+    break;
+  }
+}
+showNotification4(from, align){
+  let hhh: any[] = [];
+   
+  let URL = localStorage.getItem('URL');
+  
+  this._myservice.detailspy({'URL':URL})
+  .subscribe(
+    data => {
+      this.details = Object.values( data[0]);
+      for(var i=1; i<20;i++){
+        
+      this.hh=this.details[1]["titre"];
+      this.gg=this.details[2]["titre"];
+      this.ii= this.details[3]["titre"];
+      this.kk=this.details[4]["titre"];
+      this.nn=this.details[5]["titre"];
+     
+   
+      
+      //console.log(titres);
+      
+        
+    
+    }
+    hhh.push(this.hh);
+    hhh.push(this.gg);
+    hhh.push(this.ii);
+    hhh.push(this.kk);
+    hhh.push(this.nn);
+    console.log("pssss");
+      console.log(this.hh);
+      console.log(hhh)
+     
+     
+    },
+    error => {
+      console.log(error);
+    });  
+   
+  const color = Math.floor((Math.random() * 5) + 1);
+  
+
+  switch(color){
+   /* case 1:
+    this.toastr.info(`Titre: ${this.gg}` , '', {
+       
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-info alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;*/
+    case 1:
+    this.toastr.success(`Titre: ${this.kk}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-success alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 2:
+    this.toastr.warning(`Titre: ${this.kk}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-warning alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 3:
+    this.toastr.error(`Titre: ${this.kk}`, '', {
+       disableTimeOut: true,
+       enableHtml: true,
+       closeButton: true,
+       toastClass: "alert alert-danger alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+     break;
+     case 4 :
+     this.toastr.show(`Titre: ${this.kk}`, '', {
+        disableTimeOut: true,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-primary alert-with-icon",
+        positionClass: 'toast-' + from + '-' +  align
+      });
+    break;
+    default:
+    break;
+  }
+}
+
+showNotification5(from, align){
+  let hhh: any[] = [];
+   
+  let URL = localStorage.getItem('URL');
+  
+  this._myservice.detailspy({'URL':URL})
+  .subscribe(
+    data => {
+      this.details = Object.values( data[0]);
+      for(var i=1; i<20;i++){
+        
+      this.hh=this.details[1]["titre"];
+      this.gg=this.details[2]["titre"];
+      this.ii= this.details[3]["titre"];
+      this.kk=this.details[4]["titre"];
+      this.nn=this.details[5]["titre"];
+     
+   
+      
+      //console.log(titres);
+      
+        
+    
+    }
+    hhh.push(this.hh);
+    hhh.push(this.gg);
+    hhh.push(this.ii);
+    hhh.push(this.kk);
+    hhh.push(this.nn);
+    console.log("pssss");
+      console.log(this.hh);
+      console.log(hhh)
+     
+     
+    },
+    error => {
+      console.log(error);
+    });  
+   
+  const color = Math.floor((Math.random() * 5) + 1);
+  
+
+  switch(color){
+   /* case 1:
+    this.toastr.info(`Titre: ${this.gg}` , '', {
+       
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-info alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;*/
+    case 1:
+    this.toastr.success(`Titre: ${this.nn}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-success alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 2:
+    this.toastr.warning(`Titre: ${this.nn}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-warning alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 3:
+    this.toastr.error(`Titre: ${this.nn}`, '', {
+       disableTimeOut: true,
+       enableHtml: true,
+       closeButton: true,
+       toastClass: "alert alert-danger alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+     break;
+     case 4 :
+     this.toastr.show(`Titre: ${this.nn}`, '', {
+        disableTimeOut: true,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-primary alert-with-icon",
+        positionClass: 'toast-' + from + '-' +  align
+      });
+    break;
+    default:
+    break;
+  }
+}
+
+showNotification6(from, align){
+  let hhh: any[] = [];
+   
+  let URL = localStorage.getItem('URL');
+  
+  this._myservice.detailspy({'URL':URL})
+  .subscribe(
+    data => {
+      this.details = Object.values( data[0]);
+      for(var i=1; i<20;i++){
+        
+      this.hh=this.details[1]["titre"];
+      this.gg=this.details[2]["titre"];
+      this.ii= this.details[3]["titre"];
+      this.kk=this.details[4]["titre"];
+      this.nn=this.details[5]["titre"];
+     this.mm=this.details[6]["titre"];
+   
+      
+      //console.log(titres);
+      
+        
+    
+    }
+    hhh.push(this.hh);
+    hhh.push(this.gg);
+    hhh.push(this.ii);
+    hhh.push(this.kk);
+    hhh.push(this.nn);
+    hhh.push(this.mm);
+    console.log("pssss");
+      console.log(this.hh);
+      console.log(hhh)
+     
+     
+    },
+    error => {
+      console.log(error);
+    });  
+   
+  const color = Math.floor((Math.random() * 5) + 1);
+  
+
+  switch(color){
+   /* case 1:
+    this.toastr.info(`Titre: ${this.gg}` , '', {
+       
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-info alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;*/
+    case 1:
+    this.toastr.success(`Titre: ${this.mm}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-success alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 2:
+    this.toastr.warning(`Titre: ${this.mm}`, '', {
+       disableTimeOut: true,
+       closeButton: true,
+       enableHtml: true,
+       toastClass: "alert alert-warning alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+    break;
+    case 3:
+    this.toastr.error(`Titre: ${this.mm}`, '', {
+       disableTimeOut: true,
+       enableHtml: true,
+       closeButton: true,
+       toastClass: "alert alert-danger alert-with-icon",
+       positionClass: 'toast-' + from + '-' +  align
+     });
+     break;
+     case 4 :
+     this.toastr.show(`Titre: ${this.mm}`, '', {
+        disableTimeOut: true,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-primary alert-with-icon",
+        positionClass: 'toast-' + from + '-' +  align
+      });
+    break;
+    default:
+    break;
+  }
+}
+
+
+
+
+
+
+
   ngOnInit(){this.getdetails(); this.chartme();this.react_stat();this.sent_stat();this.date_stat();
   /*this.PieChart= new Chart('pieChart',{
     type:'pie',
