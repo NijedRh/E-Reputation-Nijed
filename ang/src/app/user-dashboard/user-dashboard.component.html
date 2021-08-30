@@ -106,9 +106,9 @@
       <div class=" block block-three"></div>
       <div class=" block block-four"></div>
      
-        <!--<img alt="..."  class="avatar-upload" src="assets/img/minyara.jpg" />-->
+        <img alt="..."  class="avatar-upload" src="assets/img/lbg.jpg" />
 
-        <img id="myimage" [src]='image' />
+      <!--  <img id="myimage" [src]="imageUrl"  />-->
 
         <h5 class=" title">{{this.user.Bank_Name}}</h5>
         <br> <br>
@@ -122,9 +122,9 @@
   <div class=" card-footer">
     <div class=" button-container">
       <button
-        class=" btn btn-icon btn-round btn-facebook"
-         > 
+        class=" btn btn-icon btn-round btn-facebook" (click)="fbClick('facebook')"  > 
         <i class=" fab fa-facebook"> </i>
+        
       </button>
       <button
         class=" btn btn-icon btn-round btn-twitter"

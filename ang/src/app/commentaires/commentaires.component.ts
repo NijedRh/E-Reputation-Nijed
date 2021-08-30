@@ -115,38 +115,46 @@ export class CommentairesComponent implements OnInit {
       break;*/
       case 1:
       this.toastr.success(`Titre: ${this.hh}`, '', {
+        timeOut: 8000,
          disableTimeOut: true,
          closeButton: true,
          enableHtml: true,
          toastClass: "alert alert-success alert-with-icon",
          positionClass: 'toast-' + from + '-' +  align
+        
        });
       break;
       case 2:
       this.toastr.warning(`Titre: ${this.hh}`, '', {
+        timeOut: 8000,
          disableTimeOut: true,
          closeButton: true,
          enableHtml: true,
          toastClass: "alert alert-warning alert-with-icon",
          positionClass: 'toast-' + from + '-' +  align
+         
        });
       break;
       case 3:
       this.toastr.error(`Titre: ${this.hh}`, '', {
+        timeOut: 8000,
          disableTimeOut: true,
          enableHtml: true,
          closeButton: true,
          toastClass: "alert alert-danger alert-with-icon",
          positionClass: 'toast-' + from + '-' +  align
+         
        });
        break;
        case 4 :
        this.toastr.show(`Titre: ${this.hh}`, '', {
+        timeOut: 1,
           disableTimeOut: true,
           closeButton: true,
           enableHtml: true,
           toastClass: "alert alert-primary alert-with-icon",
           positionClass: 'toast-' + from + '-' +  align
+          
         });
       break;
       default:
@@ -1562,7 +1570,7 @@ error => {
           },
           ticks: {
             suggestedMin: 0,
-            suggestedMax: 10,
+            suggestedMax: 3,
             padding: 1,
             fontColor: "#9a9a9a"
           }

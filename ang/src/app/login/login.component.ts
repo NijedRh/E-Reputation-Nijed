@@ -13,13 +13,14 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   role:any;
+  submitted:boolean = false
   user:any;
   constructor(private _myservice: MyserviceService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute) {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required)
+      email: new FormControl(null, [Validators.required,Validators.email]),
+      password: new FormControl(null,Validators.minLength(8))
     });
 
   }
@@ -27,13 +28,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  isValid(controlName) {
-    return this.loginForm.get(controlName).invalid && this.loginForm.get(controlName).touched;
-  }
 
   login() {
-    console.log(this.loginForm.value);
-
+    console.log(this.f.password.errors);
+this.submitted = true
     if (this.loginForm.valid) {
       localStorage.setItem('email', this.loginForm.get('email').value.toString());
       console.log(this.loginForm.get('email').value.toString());
@@ -41,7 +39,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
           data => {
             console.log(data);
-
+            
             localStorage.setItem('token', data.toString());
            // if (data.role==='admin'){
             
@@ -52,6 +50,8 @@ export class LoginComponent implements OnInit {
     }
   }
   adminlog(){
+    this.submitted = true
+
     console.log(this.loginForm.value);
 
     if (this.loginForm.valid) {
@@ -68,6 +68,10 @@ export class LoginComponent implements OnInit {
           error => { }
         );
     }
+  }
+
+  get f() {
+    return this.loginForm.controls;
   }
 
   movetoregister() {

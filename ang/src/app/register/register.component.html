@@ -53,7 +53,11 @@
                     <input type="text" formControlName="email" matInput placeholder="Email" id="email">
                     <i class="fa fa-user"></i>
                 </mat-form-field>                
-                <span *ngIf="isValid('email')">Entered email is invalid</span>
+                <div class="errors" *ngIf="submitted && f.email.errors" >
+                    <span *ngIf="f.email.errors.required">Email cannot be blank</span>
+                        
+                    <span  *ngIf="f.email.errors.email">Email is not valid</span>
+     </div>
             </div>
             <div>
                 <mat-form-field style="width:100%;">
@@ -73,7 +77,11 @@
                     <input type="password" formControlName="password" matInput placeholder="Password" id="pass">
                     <i class="fa fa-key"></i>
                 </mat-form-field>
-                <span *ngIf="isValid('password')">Password is a mandatory field</span>
+                <div class="errors" *ngIf="submitted && f.password.errors" >
+                    <span *ngIf="f.password.errors.minlength">Password should be longer than 8</span>
+                    
+
+     </div>
             </div>
             <div>
                 <mat-form-field style="width:100%;">

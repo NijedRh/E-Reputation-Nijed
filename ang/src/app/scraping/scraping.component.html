@@ -39,16 +39,18 @@
     </nav>
   
   </nav>
-  
+  <br>
   <br> 
+  <button class="btn btn-warning" [ngClass]="{ 'disabled': loading }" (click)="lancerscraping()" style="margin-left: 700px; width: 200px; height: 30px;">Lancer le scraping<i *ngIf="loading" class="fa fa-hourglass rotate"></i></button>
 
+<br> 
+<br>
 
-
-  <table  class="table table-responsive">
+  <table  class="table table-responsive tabtrans">
     <thead>
         <tr>
            
-      <th>posts</th>
+      <th>postes</th>
       <th>titre</th>
       <th>Date</th>
       <th>Nombre de j'aime</th>

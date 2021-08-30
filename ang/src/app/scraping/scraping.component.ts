@@ -12,10 +12,10 @@ import {take} from 'rxjs/operators';
 export class ScrapingComponent implements OnInit {
   pythouna: Object;
   collapsed: Boolean;
-
+  loading  = false
   constructor(private _router: Router,private _http: HttpClient,private _myservice: MyserviceService,private _activatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {  this.posturl() }
+  ngOnInit(): void {  }
 
   things = ['Auteur', 'commentaire', 'sentiment'];
 
@@ -34,20 +34,22 @@ export class ScrapingComponent implements OnInit {
 
         }*/
        
-        posturl(){
+        lancerscraping(){
+          this.loading = true
           let URL = localStorage.getItem('URL');
+          console.log(URL);
           
           this._myservice.datapy({'URL':URL}).pipe(take(1))
           .subscribe(
             data => {
               this.pythouna = Object.values( data[0])
              console.log("salut nijed")
-        
+           this.loading = false
               console.log(this.pythouna);
             },
             error => {
               console.log(error);
-            });     
+            });   
         }
 
         commsdetails(){

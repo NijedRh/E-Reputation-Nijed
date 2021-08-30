@@ -13,8 +13,7 @@
         <thead>
           <br>
         <tr>
-          
-          <th>Id</th>
+        
           <th>Banks Name</th>
           <th>URL</th>
           <th>Resultat</th>
@@ -24,7 +23,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let bank of banks | filter:searchText">
-          <td>{{bank.id}}</td>
+          
           <td>{{bank.Bank_Name}}</td>
           <td>{{bank.URL}}</td>
           <td><button  class="btn btn-info" (click)="scrape(bank.URL)">Scrape</button></td>

@@ -22,10 +22,12 @@ export class UserDashboardComponent implements OnInit {
   image: any;
   thumbnail: any;
   yy: string;
-  imageUrl: string | ArrayBuffer;
+  imageUrl
+  url: Object;
+  uu: Object;
 
-  constructor(private _http: HttpClient,
-  private _router: Router, private _activatedRoute: ActivatedRoute,private _myservice: MyserviceService,private sanitizer:DomSanitizer) { 
+  constructor(private _http: HttpClient,private sanitizer: DomSanitizer,
+  private _router: Router, private _activatedRoute: ActivatedRoute,private _myservice: MyserviceService) { 
     
    
   }
@@ -33,25 +35,43 @@ export class UserDashboardComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 
-  ngOnInit():void {this.retrieveUserbank(); }
+  ngOnInit():void { this.retrieveUserbank(); this.retrieveURL() }
+  
+   
   
 
-  
+   retrieveURL(){
+    let email = localStorage.getItem('email');
+    
 
-
+    this._myservice.getAlldetails({'email':email})
+        .subscribe(
+          data => {
+            this.uu =  Object.values( data[0]);
+            console.log("cigggg");
+            console.log(this.uu);
+            console.log('hy')
+            //localStorage.setItem('Bank_Name',data['Bank_Name']);
+            //this.retrieveImagebank(data)
+          },
+          error => {
+            console.log(error);
+          });
+          
+   }
 
 
 
     retrieveUserbank(){
     let email = localStorage.getItem('email');
-    let Bank_Name = localStorage.getItem('Bank_Name');
     
 
     this._myservice.getUserBank({'email':email})
         .subscribe(
           data => {
             this.user = data;
-            console.log(this.user);
+            localStorage.setItem('Bank_Name',data['Bank_Name']);
+            this.retrieveImagebank(data)
           },
           error => {
             console.log(error);
@@ -60,25 +80,46 @@ export class UserDashboardComponent implements OnInit {
           
   
   }
-  /*retrieveImagebank(){
+  retrieveImagebank(data){
     let Bank_Name = localStorage.getItem('Bank_Name');
-    this._myservice.getBankImage({'Bank_Name':Bank_Name})
-    .subscribe(//(baseImage : any)=> 
+    this._myservice.getBankImage({'Bank_Name':data['Bank_Name']})
+    .subscribe((baseImage : any)=> 
     
-    /*(data: Blob) => {
-      this.createImageFromBlob(data);
+     {
+      this.createImageFromBlob(baseImage);
     })
   }
 
-    createImageFromBlob(image: Blob) {
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
-      this.imageUrl= reader.result;
-    }, false);
-  if (image) {
-      reader.readAsDataURL(image);
+  fbClick(from){
+    switch (from) {
+      case "facebook":
+        window.open(this.uu[2],"_blank"); 
+        break;
+    
+      default:
+        break;
     }
-  }*/
+   
+  }
+
+    createImageFromBlob(image: Blob) {
+      let TYPED_ARRAY = new Uint8Array(image[0]['imageUpload']['data']);
+      const STRING_CHAR = TYPED_ARRAY.reduce((data, byte)=> {
+        return data + String.fromCharCode(byte);
+        }, '');
+        let base64String = btoa(STRING_CHAR);
+        this.imageUrl = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + base64String);
+        console.log(this.imageUrl);
+        
+  }
+
+  getphoto ( ){
+    setTimeout(() => {
+      console.log('hola');
+      
+      return this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl)
+    }, 3000);
+  }
    /* data=>
     {
       this.image=data;

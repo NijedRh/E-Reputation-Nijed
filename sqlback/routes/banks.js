@@ -131,8 +131,8 @@ router.post('/getAlluserbanks',function(req,res,next){
  router.post('/getBankImage',function(req,res,next){
   Bank.findAll({
       attributes: ['imageUpload'],
-      group: ['imageUpload']
-    //where:{Bank_Name : [req.body.Bank_Name]}
+      group: ['imageUpload'],
+      where:{Bank_Name : [req.body.Bank_Name]}
   })
   .then(imageUpload => {
   

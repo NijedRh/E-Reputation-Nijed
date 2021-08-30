@@ -52,7 +52,7 @@ export class MyserviceService {
       });
   
   }
-  getBankImage(body:Blob){
+  getBankImage(body:any){
     return this._http.post('http://localhost:3000/banks/getBankImage',body ,{
         observe: 'body'
       

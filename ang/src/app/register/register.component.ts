@@ -12,15 +12,16 @@ export class RegisterComponent implements OnInit {
 
   myForm: FormGroup;
   successMessage: String = '';
+  submitted : boolean = false;
   constructor(private _myservice: MyserviceService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute) {
     this.myForm = new FormGroup({
-      email: new FormControl(null, Validators.email),
+      email: new FormControl(null, [Validators.required,Validators.email]),
       username: new FormControl(null, Validators.required),
       role:new FormControl(null,Validators.required),
       Bank_Name:new FormControl(null,Validators.required),
-      password: new FormControl(null, Validators.required),
+      password: new FormControl(null,Validators.minLength(8)),
       cnfpass: new FormControl(null, this.passValidator)
     });
 
@@ -56,8 +57,9 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    console.log(this.f.email.errors);
     console.log(this.myForm.value);
-
+    this.submitted = true
     if (this.myForm.valid) {
       this._myservice.submitRegister(this.myForm.value)
         .subscribe(
@@ -66,6 +68,11 @@ export class RegisterComponent implements OnInit {
         );
     }
   }
+  
+  get f() {
+    return this.myForm.controls;
+  }
+
 
   movetologin() {
     this._router.navigate(['../login'], { relativeTo: this._activatedRoute });

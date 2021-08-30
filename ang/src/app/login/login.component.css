@@ -200,3 +200,11 @@ div > span {
     color: #fff;
     text-decoration: none;
   }
+
+  .is-invalid{
+    border: 1px solid red !important;
+
+  }
+  .errors{
+    color:  red !important;
+  }

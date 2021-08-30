@@ -31,20 +31,33 @@
     <div class="formbody">
         <form style="width:400px;" [formGroup]="loginForm" class="login">
             <div class="title">Welcome</div>
-            <div>
+            <div >
                 <mat-form-field style="width:100%;">
                     
-                    <input type="text"formControlName="email" matInput placeholder="Enter Email" autofocus>
+                    <input type="text" formControlName="email" required  matInput placeholder="Enter Email" autofocus >
                     <i class="fa fa-user"></i>
                 </mat-form-field>
-                <span *ngIf="isValid('email')">Username cannot be blank</span>
+              
+                   <!--<span *ngIf="isValid('email')">Email Name is required</span>
+                    <div *ngIf="loginForm.get('email').errors.email">Email must be a valid email Address</div>--> 
+                    <div class="errors" *ngIf="submitted && f.email.errors" >
+               <span *ngIf="f.email.errors.required">Email cannot be blank</span>
+                   
+               <span  *ngIf="f.email.errors.email">Email is not valid</span>
+</div>
+            
+               <!-- <span *ngIf="loginForm.get('email').errors.email">Email must be a valid email address</span>-->
             </div>
             <div>
                 <mat-form-field style="width:100%;">
                     <input type="password" formControlName="password" matInput placeholder="Password">
                     <i class="fa fa-key"></i>
                 </mat-form-field>
-                <span *ngIf="isValid('password')">Password cannot be blank</span>
+                <div class="errors" *ngIf="submitted && f.password.errors" >
+                    <span *ngIf="f.password.errors.minlength">Password should be longer than 8</span>
+                    
+
+     </div>
             </div>
             <div style="margin-top:40px; margin-left: 10px;padding-right: -10px;width: 100%;">
                 <button class="form-btn" style="width: 50%;" (click)="login()"> Login</button>
