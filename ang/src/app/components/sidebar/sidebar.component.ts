@@ -23,6 +23,13 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
+    path: "/user",
+    title: "Users",
+    rtlTitle: "ملف تعريفي للمستخدم",
+    icon: "icon-single-02",
+    class: ""
+  },
+  {
     path: "/actualite",
     title: "Actualité de banques",
     rtlTitle: "أخبار البنك",
@@ -36,13 +43,7 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },*/
 
-    {
-    path: "/user",
-    title: "Users",
-    rtlTitle: "ملف تعريفي للمستخدم",
-    icon: "icon-single-02",
-    class: ""
-  },
+    
   {
     path: "/recherche",
     title: "Table List",

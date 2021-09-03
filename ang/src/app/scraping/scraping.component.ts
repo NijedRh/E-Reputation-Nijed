@@ -12,10 +12,17 @@ import {take} from 'rxjs/operators';
 export class ScrapingComponent implements OnInit {
   pythouna: Object;
   collapsed: Boolean;
-  loading  = false
+  loading  = false;
+  ll: any;
   constructor(private _router: Router,private _http: HttpClient,private _myservice: MyserviceService,private _activatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { 
+    let mytab = JSON.parse(localStorage.getItem('Array'))
+    if(mytab){
+      this.pythouna = mytab
+    }
+
+   }
 
   things = ['Auteur', 'commentaire', 'sentiment'];
 
@@ -35,6 +42,7 @@ export class ScrapingComponent implements OnInit {
         }*/
        
         lancerscraping(){
+          localStorage.removeItem('Array');
           this.loading = true
           let URL = localStorage.getItem('URL');
           console.log(URL);
@@ -43,9 +51,19 @@ export class ScrapingComponent implements OnInit {
           .subscribe(
             data => {
               this.pythouna = Object.values( data[0])
-             console.log("salut nijed")
+             console.log("salut nijed");
+             localStorage.setItem('Array', JSON.stringify(this.pythouna));
+
            this.loading = false
               console.log(this.pythouna);
+              for(var i=1; i< 20;i++){
+              
+             // this.ll= this.pythouna[1]["commentaires"]["det"][i][1];
+             this.ll = this.pythouna[i]["commentaires"]["det"][1];
+
+              console.log('hh');
+              console.log(this.ll);
+              }
             },
             error => {
               console.log(error);

@@ -77,29 +77,8 @@
                <!-- <button class="btn btn-info" (click)="commsdetails(this.pythouna)">Details</button>-->
                <tbody mdbTable striped="true">
                <td scope="row">
-                <button
-                  type="button"
-                  matBtn
-                  color="danger"
-                  class="master-button"
-                  matWavesEffect
-                  *ngIf="collapsed "
-                  (click)="collapsed = !collapsed"
-                >
-                  <mat-icon fas icon="angle-down"></mat-icon>
-                </button>
-                <button
-                  type="button"
-                  matBtn
-                  color="success"
-                  class="master-button"
-                  
-                  matWavesEffect
-                  *ngIf="!collapsed "
-                  (click)="collapsed = !collapsed"
-                >
-                  <mat-icon fas icon="angle-right"></mat-icon>
-                </button>
+                <button    (click)="collapsed = !collapsed" type="button" class="btn btn-light coll">{{collapsed ? 'uncollapse' : 'collapse'}}</button>
+
                
               </td>
               <tr
@@ -121,6 +100,10 @@
                 <td>{{item.commentaires.det[0][0]['auteur ']}}</td>
                <td> {{item.commentaires.det[0][1]['comm ']}} </td>
                <td> {{item.commentaires.det[0][2]['sent : ']}} </td>
+               <!-- <tr *ngFor
+                 <td>{{l.commentaires.det[k][0]['auteur ']}}</td>
+               <td> {{l.commentaires.det[k][1]['comm ']}} </td>
+               <td> {{l.commentaires.det[k][2]['sent : ']}} </td>-->
               </tr>
 
               </ng-container>
