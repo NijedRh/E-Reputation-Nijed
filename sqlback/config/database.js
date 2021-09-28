@@ -22,7 +22,7 @@ module.exports = {
     DB_HOST: 'localhost',
     DB_USER: 'root',
     DB_PASS: 'root',
-    DB_NAME: 'minyar',
+    DB_NAME: 'reputation',
     dialect: "mysql",
 
     // pool is optional, it will be used for Sequelize connection pool configuration

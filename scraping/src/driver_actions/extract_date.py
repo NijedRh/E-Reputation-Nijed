@@ -1,5 +1,5 @@
-class DateExtractor :
-    def __init__(self, web_element) :
+class DateExtractor:
+    def __init__(self, web_element):
         self.web_element = web_element
 
     def extract_date(self):
@@ -9,5 +9,5 @@ class DateExtractor :
         mois = lista[2]
         jour = lista[0]
 
-        #data =datee.text
-        return [datee,année,mois,jour]
+        # data =datee.text
+        return [datee, année, mois, jour]
